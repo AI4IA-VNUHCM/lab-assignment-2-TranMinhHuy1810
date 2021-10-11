@@ -15,17 +15,20 @@ int main(int argc, char *argv[]) {
 	int testcase = atoi(argv[1]);
 	
 	//Your codes here
-	while(testcase%2==0){
-		printf("%d * ",2);
-		testcase/=2;
-	}
-	for(int i=3;i<=sqrt(testcase);i+=2){
+	int a=0;
+	int i;
+	for(int i=2;i*i<=testcase;i++){
 		while(testcase%i==0){
-			printf("%d * ",i);
+			if(a)printf(" * ");
+			a=1;
+			printf("%d",i);
 			testcase/=i;
 		}
 	}
-	if (testcase>2)printf("%d ",testcase);
+	if(testcase!=1){
+		if (a) printf(" * ");
+		printf("%d",testcase);	
+	}
 	
 	return 0;
 }
